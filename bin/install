@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# This script is the meta layer of the process for installing dotfiles. We use
+# bash since the system may not yet have zsh available.
+set -o errexit
+set -o pipefail
+set -o nounset
+
+# We need to find ourselves so we can load other modules
+MDF_INSTALLER_PATH="$(realpath -e "${BASH_SOURCE[0]}")"
+MDF_MODULES_PATH="$(realpath -e "${MDF_INSTALLER_PATH%/*}/../modules")"
+source "${MDF_MODULES_PATH}/modman.bash"
+
+# First we'd like to make sure that all of the expected packages are available.
+mdf_modman_load pkgman
+mdf_pkgman_install tmux vim zsh
