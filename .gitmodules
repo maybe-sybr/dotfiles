@@ -6,3 +6,6 @@
 	path = dotfiles/zsh/.config/zsh/omz-custom/themes/powerlevel9k
 	url = https://github.com/Powerlevel9k/powerlevel9k.git
 	shallow = true
+[submodule "dotfiles/vim/dot-vim/pack/default/start/gruvbox"]
+	path = dotfiles/vim/dot-vim/pack/default/start/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
