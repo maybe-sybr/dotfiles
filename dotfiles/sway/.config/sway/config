@@ -1,0 +1,227 @@
+##
+# per-machine config
+##
+# display layout - define leftmost and then each one toward the right up to 4
+set $DISPLAY_LEFTMOST   "eDP-1"
+set $DISPLAY_RIGHT_1    "DP-1"
+set $DISPLAY_RIGHT_2    ""
+set $DISPLAY_RIGHT_3    ""
+set $DISPLAY_RIGHT_4    ""
+# workspace -> display mapping - undefined = on-demand workspace
+# we can't use variable recursion because i3 doesn't support it
+set $WS1_DISPLAY        "eDP-1"
+set $WS2_DISPLAY        "eDP-1"
+set $WS3_DISPLAY        "eDP-1""
+set $WS4_DISPLAY        "DP-1"
+set $WS5_DISPLAY        "DP-1"
+set $WS6_DISPLAY        "DP-1"
+set $WS7_DISPLAY        ""
+set $WS8_DISPLAY        ""
+set $WS9_DISPLAY        ""
+set $WS10_DISPLAY       ""
+# normal colours are blue for outside
+set $active_border      "#4C7899"
+set $active_bg          "#285577"
+set $active_indic       "#2E9EF4"
+set $active_child       "#285577"
+# urgent is red
+set $urgent_border      "#2F343A"
+set $urgent_bg          "#900000"
+set $urgent_indic       "#900000"
+set $urgent_child       "#900000"
+# binding is red
+set $binding_border     "#2F343A"
+set $binding_bg         "#900000"
+set $binding_indic      "#900000"
+set $binding_child      "#900000"
+
+##
+# here is where we start the actual work
+##
+# alt is the global modifier
+set $mod Mod1
+# font is dejavu mono and fairly small - used for nagbar below also
+font pango:DejaVu Sans Mono 8
+# minimal border, no title bar unless tabbed
+default_border pixel 1
+
+##
+# bindings
+##
+# layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen toggle
+# float
+floating_modifier $mod
+bindsym $mod+Shift+space floating toggle
+# focus
+bindsym $mod+space          focus mode_toggle
+bindsym $mod+a              focus parent
+bindsym $mod+d              focus child
+bindsym $mod+h              focus left
+bindsym $mod+j              focus down
+bindsym $mod+k              focus up
+bindsym $mod+l              focus right
+bindsym $mod+Left           focus left
+bindsym $mod+Down           focus down
+bindsym $mod+Up             focus up
+bindsym $mod+Right          focus right
+# movement
+bindsym $mod+Shift+h        move left
+bindsym $mod+Shift+j        move down
+bindsym $mod+Shift+k        move up
+bindsym $mod+Shift+l        move right
+bindsym $mod+Shift+Left     move left
+bindsym $mod+Shift+Down     move down
+bindsym $mod+Shift+Up       move up
+bindsym $mod+Shift+Right    move right
+# spawn/kill
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+q kill
+# dmenu is bound below where we define our colour scheme
+#bindsym $mod+p exec dmenu_run
+# split directions
+bindsym $mod+backslash  split h
+bindsym $mod+minus      split v
+bindsym $mod+grave      split v
+# sway commands
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "swaynag -t warning -f 'pango:DejaVu Sans Mono 8' -m 'Actually exit?' -B 'yeet' 'swaymsg exit'"
+
+# resize mode
+mode "resize" {
+    # directional shrinking
+    bindsym h           resize shrink left  2px or 2ppt
+    bindsym j           resize shrink down  2px or 2ppt
+    bindsym k           resize shrink up    2px or 2ppt
+    bindsym l           resize shrink right 2px or 2ppt
+    bindsym Left        resize shrink left  2px or 2ppt
+    bindsym Down        resize shrink down  2px or 2ppt
+    bindsym Up          resize shrink up    2px or 2ppt
+    bindsym Right       resize shrink right 2px or 2ppt
+    # directional growth with shift modifiers
+    bindsym Shift+h     resize grow left    2px or 2ppt
+    bindsym Shift+j     resize grow down    2px or 2ppt
+    bindsym Shift+k     resize grow up      2px or 2ppt
+    bindsym Shift+l     resize grow right   2px or 2ppt
+    bindsym Shift+Left  resize grow left    2px or 2ppt
+    bindsym Shift+Down  resize grow down    2px or 2ppt
+    bindsym Shift+Up    resize grow up      2px or 2ppt
+    bindsym Shift+Right resize grow right   2px or 2ppt
+    # escape
+    bindsym Return mode     "default"
+    bindsym Escape mode     "default"
+    bindsym $mod+r mode     "default"
+    bindsym Control+c mode  "default"
+}
+bindsym $mod+r mode "resize"
+
+# screen lock - mod4 should be the super/hyper keys
+bindsym mod4+l          exec "${HOME}/bin/swaylock"
+bindsym $mod+Shift+z    exec "${HOME}/bin/swaylock"
+# The dpms off/on cycle makes my laptop screen not come back most of the time
+#exec swayidle -w                                \
+#    timeout 600 '${HOME}/bin/swaylock'          \
+#    timeout 900 'swaymsg "output * dpms off"'   \
+#    resume      'swaymsg "output * dpms on"'    \
+#    before-sleep '${HOME}/bin/swaylock'
+exec swayidle -w                                \
+    timeout 600 '${HOME}/bin/swaylock'          \
+    before-sleep '${HOME}/bin/swaylock'
+
+# display layout
+# XXX
+#exec bash "${HOME}/bin/i3layout" $DISPLAY_LEFTMOST $DISPLAY_RIGHT_1 $DISPLAY_RIGHT_2 $DISPLAY_RIGHT_3 $DISPLAY_RIGHT_4
+
+# run ~/.xsession so X things look right
+exec bash "${HOME}/.xsession"
+
+##
+# workspaces
+##
+set $ws1    "1"
+set $ws2    "2"
+set $ws3    "3"
+set $ws4    "4"
+set $ws5    "5"
+set $ws6    "6"
+set $ws7    "7"
+set $ws8    "8"
+set $ws9    "9"
+set $ws10   "0"
+# switch
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+# move containers
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+# move workspaces
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+l move workspace to output right
+# layout
+workspace $ws1 output   $WS1_DISPLAY
+workspace $ws2 output   $WS2_DISPLAY
+workspace $ws3 output   $WS3_DISPLAY
+workspace $ws4 output   $WS4_DISPLAY
+workspace $ws5 output   $WS5_DISPLAY
+workspace $ws6 output   $WS6_DISPLAY
+workspace $ws7 output   $WS7_DISPLAY
+workspace $ws8 output   $WS8_DISPLAY
+workspace $ws9 output   $WS9_DISPLAY
+workspace $ws10 output  $WS10_DISPLAY
+
+##
+# colours
+# source the actual colours from another file not under source control
+##
+# define the scheme
+client.focused          $active_border  $active_bg     #FFFFFF      $active_indic   $active_child
+client.focused_inactive #333333         #556666        #FFFFFF      #99AAAA         #778888
+client.unfocused        #333333         #222222        #888888      #333333         #222222
+client.urgent           $urgent_border  $urgent_bg     #FFFFFF      $urgent_indic   $urgent_child
+client.placeholder      #000000         #0C0C0C        #FFFFFF      #000000         #0C0C0C
+client.background       #FFFFFF
+# make dmenu coloured too
+bindsym $mod+p exec dmenu_run -b -nf "#BBBBBB" -nb "#222222" -sb "$active_bg" -sf "#EEEEEE" -fn "monospace-8" -p "run >"
+# apply colours to swaybar as well
+bar {
+    colors {
+        background  #000000
+        statusline  #FFFFFF
+        separator   #666666
+        focused_workspace   $active_border  $active_bg      #FFFFFF
+        active_workspace    #333333         #222222         #FFFFFF
+        inactive_workspace  #333333         #222222         #888888
+        urgent_workspace    $urgent_border  $urgent_bg      #FFFFFF
+        binding_mode        $binding_border $binding_bg     #FFFFFF
+    }
+##
+# other bar setup
+##
+    status_command i3status
+}
+
+input "type:keyboard" {
+    xkb_options ctrl:nocaps
+    repeat_delay 150
+    repeat_rate 100
+}

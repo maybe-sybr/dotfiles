@@ -1,0 +1,4 @@
+! remap caps lock to ctrl_l
+clear Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L

@@ -1,0 +1,64 @@
+set showcmd
+" dump swap files in a fixed location and don't do backups or undo files
+set directory=~/.vimswap//
+set nobackup
+set nowritebackup
+set noundofile
+" colours!
+syntax on
+colorscheme gruvbox
+set background=dark
+" numbers! this shows relative numbering for all lines except the current one
+set number
+set relativenumber
+set numberwidth=4   " this is the default but to be obvious
+" always be unix because we're not monsters
+set fileformat=unix
+" col 80 wrapping because ^^
+set textwidth=79
+set colorcolumn=+1
+" render soft wraps obviously
+let &showbreak = " -> "
+" and do soft wrapping on `breakat` chars
+set linebreak
+" render tabs and EOL
+set list
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:~
+" sane indentation
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set cindent
+" set the cindent options to do the following
+"  - indent unclosed paren lines by a single shift width
+"  - don't indent the closing paren
+set cinoptions=(s,m1
+" allow a filetype plugin to override these settings
+filetype plugin indent on
+" but specify some options for python files
+let g:pyindent_open_paren = 'shiftwidth()'
+let g:pyindent_nested_paren = 'shiftwidth()'
+let g:pyindent_continue = 'shiftwidth()'
+let g:python_recommended_style = 0
+" turn on sane folding
+set foldenable
+set foldcolumn=1
+set foldmethod=syntax
+" I like fully unfolded by default and a manual z[Mm] when I start moving
+" some other people like 1/2 as a starting point
+set foldlevelstart=99
+" make splits sane
+set splitright
+set splitbelow
+" highlight last search
+set hlsearch
+" netrw preferences
+" no banner
+let g:netrw_banner=0
+" show all files
+let g:netrw_hide=0
+" use tree listing format
+let g:netrw_liststyle=3
+" browse into the previous window (like "P")
+let g:netrw_browse_split=4

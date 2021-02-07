@@ -1,0 +1,8 @@
+[submodule "dotfiles/zsh/.config/zsh/ohmyzsh"]
+	path = dotfiles/zsh/.config/zsh/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+	shallow = true
+[submodule "dotfiles/zsh/.config/zsh/omz-custom/themes/powerlevel9k"]
+	path = dotfiles/zsh/.config/zsh/omz-custom/themes/powerlevel9k
+	url = https://github.com/Powerlevel9k/powerlevel9k.git
+	shallow = true

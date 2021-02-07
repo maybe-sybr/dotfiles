@@ -1,0 +1,9 @@
+# vim: ft=sh
+# skate fast
+xset r rate 150 100
+# it's night time
+xsetroot -solid black
+# do modmapping
+xmodmap ~/.xmodmap
+# and merge in resources
+xrdb -merge ~/.Xresources

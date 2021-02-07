@@ -1,0 +1,97 @@
+# set a default PATH which lets us override non-sbins
+BIN_PATH='/usr/local/bin:/usr/bin'
+SBIN_PATH='/usr/local/sbin:/usr/sbin'
+USER_PATH="${HOME}/bin:${HOME}/.local/bin"
+if [ ! -z "${VIRTUAL_ENV:-}" ]; then
+    PYVENV_PATH="${VIRTUAL_ENV}/bin"
+fi
+export PATH="${SBIN_PATH}:${PYVENV_PATH:-}:${USER_PATH}:${BIN_PATH}"
+
+# programs
+export EDITOR=vim
+export PAGER=less
+
+# oh-my-zsh setup
+#
+# path to the repository and custom directories
+_ZSH_CFG_DIR="${XDG_CONFIG_DIR:-${HOME}/.config}/zsh"
+export ZSH="${_ZSH_CFG_DIR}/ohmyzsh"
+ZSH_CUSTOM="${_ZSH_CFG_DIR}/omz-custom"
+# don't attempt to update
+DISABLE_AUTO_UPDATE="true"
+DISABLE_UPDATE_PROMPT="true"
+#export UPDATE_ZSH_DAYS=13
+# completion customisation
+CASE_SENSITIVE="false"
+HYPHEN_INSENSITIVE="true"
+ENABLE_CORRECTION="false"
+COMPLETION_WAITING_DOTS="true"
+# don't bother checking for untracked files in vcs - too slow
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+# other tunables we don't really care about
+DISABLE_MAGIC_FUNCTIONS="false"
+DISABLE_LS_COLORS="false"
+DISABLE_AUTO_TITLE="false"
+# use sane history datestamps
+HIST_STAMPS="yyyy-mm-dd"
+# theme
+ZSH_THEME="powerlevel9k/powerlevel9k"   # from omz-custom
+# theme setup
+POWERLEVEL9K_MODE="nerdfont-complete"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+    context dir vcs custom_shlvl status
+)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+    vi_mode root_indicator background_jobs virtualenv load time
+)
+# custom shlvl widget
+POWERLEVEL9K_CUSTOM_SHLVL="echo ${SHLVL}"
+POWERLEVEL9K_CUSTOM_SHLVL_BACKGROUND="yellow"
+POWERLEVEL9K_CUSTOM_SHLVL_FOREGROUND="black"
+# plugins
+plugins=(
+    alias-finder
+    catimg
+    colored-man-pages
+    colorize        # ccat and cless
+    command-not-found
+    common-aliases
+    copybuffer      # ^O -> copy buffer to clipboard
+    copydir         # copy $PWD to clipboard
+    copyfile        # copy contents of file to clipboard
+    cp              # cpv -> rsync
+    dnf
+    docker
+    docker-compose  # dc*
+    git
+    git-extras
+    history         # h and hsi to search history
+    keychain
+    tmux
+    vi-mode
+    virtualenv
+    # custom plugins
+    git-custom
+)
+# plugin specific config
+#
+# dir
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_unique"
+# keychain
+zstyle :omz:plugins:keychain agents ssh
+zstyle :omz:plugins:keychain options --quiet --timeout 10
+# vi-mode
+bindkey "^R" history-incremental-search-backward
+bindkey -M vicmd "?" history-incremental-search-backward
+bindkey "^S" history-incremental-search-forward
+bindkey -M vicmd "/" history-incremental-search-forward
+# tmux
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOCONNECT="true"
+ZSH_TMUX_AUTOQUIT="false"
+ZSH_TMUX_FIXTERM="true"
+
+# start OMZ
+source "${ZSH}/oh-my-zsh.sh"

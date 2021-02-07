@@ -1,0 +1,8 @@
+[color]
+  ui = auto
+[merge]
+  tool = vimdiff
+[pull]
+  ff = only
+[include]
+  path = ./identity.conf
