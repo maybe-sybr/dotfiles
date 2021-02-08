@@ -176,7 +176,13 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 # move workspaces
 bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+j move workspace to output down
+bindsym $mod+Control+k move workspace to output up
 bindsym $mod+Control+l move workspace to output right
+bindsym $mod+Control+Left  move workspace to output left
+bindsym $mod+Control+Down  move workspace to output down
+bindsym $mod+Control+Up    move workspace to output up
+bindsym $mod+Control+Right move workspace to output right
 # layout
 workspace $ws1 output   $WS1_DISPLAY
 workspace $ws2 output   $WS2_DISPLAY
