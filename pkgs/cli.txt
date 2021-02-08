@@ -15,4 +15,5 @@ tree
 udisks
 vim
 wondershaper
+zip
 zsh
