@@ -1,6 +1,9 @@
 # vi: set ft=sh
 #
-# This module provides logging helpers.
+# This module provides logging helpers. It is not idempotent because of the
+# read only logging levels so we have a #pragma once like check here.
+"${MDF_LOGMAN_LOADED:-false}" && return; MDF_LOGMAN_LOADED=true
+
 declare -igr MDF_LOGMAN_DEBUG=10
 declare -igr MDF_LOGMAN_INFO=20
 declare -igr MDF_LOGMAN_WARN=30
