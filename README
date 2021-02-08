@@ -1,0 +1,13 @@
+# Dotfiles
+
+Built on Fedora but should be roughly portable with some extra work. Needs the
+`lsb-release` command to function at the moment but then installs the other
+necessary packages when `bin/install` is run.
+
+Uses GNU `stow` to manage dotfiles, but this is not yet automated.
+
+```sh
+path/to/dotfiles $ stow -Rv --dotfiles -d ./dotfiles/ -t ~ <name> ...
+# or more simply
+path/to/dotfiles/dotfiles $ stow -Rv --dotfiles -t ~ *
+```
