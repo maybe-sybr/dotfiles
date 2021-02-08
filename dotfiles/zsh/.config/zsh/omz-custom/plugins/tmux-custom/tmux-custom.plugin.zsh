@@ -30,12 +30,13 @@ function _zsh_tmux_custom_run() {
 
   [[ "$ZSH_TMUX_AUTOCONNECT" == "true" ]] || return
 
-  [[ "$ZSH_TMUX_ITERM2" == "true" ]] && TMUX_CMD+=(-CC)
-  [[ "$ZSH_TMUX_UNICODE" == "true" ]] && TMUX_CMD+=(-u)
-
   # Attempt to attach to an existing session if possible
   local -r sess_name="${ZSH_TMUX_SESSION_NAME:-ohmyzsh}"
   local -a tmux_extra_args=()
+
+  [[ "$ZSH_TMUX_ITERM2" == "true" ]] && tmux_extra_args+=(-CC)
+  [[ "$ZSH_TMUX_UNICODE" == "true" ]] && tmux_extra_args+=(-u)
+
   if ! _zsh_tmux_custom_attach "${sess_name}"; then
     # Otherwise start a new session with the configured name, fixing the
     # terminal if we've been told to do so
