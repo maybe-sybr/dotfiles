@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+export SWAYSOCK="$(
+    find "${XDG_RUNTIME_DIR:-/var/run/${UID}}"                              \
+        -type s -name "sway-ipc.${UID}.*.sock"                              \
+        2>/dev/null | head -n1
+)"
+CMD="$(command -pv "${0##*/}")"
+if [ "${CMD}" == "${BASH_SOURCE[0]}" ]; then
+    echo "[E] This script is on the default PATH - don't do that..."
+fi
+exec "${CMD}" "${@}"

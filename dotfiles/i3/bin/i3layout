@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+function do_layout () {
+  # Get the xrandr output for parsing in the loop
+  local _o="$(xrandr --query)"
+  # Do a dry-run first to avoid work if anything seems broken
+  for try_args in "--dryrun" ""; do
+    # We have to skip $0
+    for ((i = 1, j = 2; i < $#; i++, j++)); do
+      # If we hit an empty arg then we claim to be finished - no gaps allowed
+      if [ -z "${!i}" ] || [ -z "${!j}" ]; then break; fi
+      if [[ "${_o}" =~ "${!i} conn" ]] && [[ "${_o}" =~ "${!j} conn" ]];
+      then
+        xrandr ${try_args} --output "${!j}" --right-of "${!i}" &>/dev/null
+      else
+        # Die if either output is not spotted in the query output
+        echo "[!] Failed to find one of '${!i}', '${!j}'"
+        return
+      fi
+    done
+  done
+}
+
+if (( $# >= 2 )); then
+    do_layout $*
+else
+    echo "[!] Usage: $0 <leftmost-output> <right-1> [<right-2> [...]]"
+fi

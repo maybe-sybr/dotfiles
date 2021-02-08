@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+SCRIPT_DIR=${BASH_SOURCE[0]%/*}
+. "${SCRIPT_DIR}/.find_display.sh"
+. "${SCRIPT_DIR}/.colours.sh"
+
+env DISPLAY="$(find_xdisplay)" /usr/bin/i3lock      \
+  --ignore-empty-password --show-failed-attempts    \
+  --color="${LOCK_SCREEN_COLOUR:-666666}"   # default to grey
