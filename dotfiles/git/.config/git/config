@@ -1,5 +1,5 @@
 [color]
-  ui = auto
+  ui = always
 [merge]
   tool = vimdiff
 [pull]
