@@ -1,0 +1,14 @@
+alacritty
+greetd-gtkgreet
+grim
+i3status
+kanshi
+slurp
+sway
+swaybg
+swayidle
+swaylock
+waybar
+wev
+wl-clipboard
+wofi

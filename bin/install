@@ -10,7 +10,22 @@ set -o nounset
 MDF_INSTALLER_PATH="$(realpath -e "${BASH_SOURCE[0]}")"
 MDF_MODULES_PATH="$(realpath -e "${MDF_INSTALLER_PATH%/*}/../modules")"
 source "${MDF_MODULES_PATH}/modman.bash"
+mdf_modman_load logman
 
-# First we'd like to make sure that all of the expected packages are available.
+# We store lists of packages in semantic groups in this directory
+MDF_PKGLISTS_PATH="$(realpath -e "${MDF_INSTALLER_PATH%/*}/../pkgs")"
+for pkglist in "${MDF_PKGLISTS_PATH}/"*.txt; do
+    mdf_prinfo "Loading package list ${pkglist##*/}"
+    readarray -t "_pkgs_$(basename "${pkglist}" ".txt")" < "${pkglist}"
+done
+
 mdf_modman_load pkgman
-mdf_pkgman_install tmux vim zsh
+# First we'd like to make sure that all of the base packages are available.
+mdf_pkgman_install "${_pkgs_base[@]}"
+# For the moment we just install everything
+mdf_pkgman_install              \
+    "${_pkgs_cli[@]}"           \
+    "${_pkgs_2fa[@]}"           \
+    "${_pkgs_dev[@]}"           \
+    "${_pkgs_containers[@]}"    \
+    "${_pkgs_sway[@]}"

@@ -1,0 +1,10 @@
+gcc
+gdb
+git
+git-lfs
+ltrace
+make
+meson
+ninja-build
+python3
+strace

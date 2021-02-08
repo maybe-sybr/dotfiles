@@ -1,0 +1,2 @@
+redhat-lsb-core
+stow
