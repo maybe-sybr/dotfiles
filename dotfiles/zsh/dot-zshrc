@@ -93,6 +93,7 @@ ZSH_TMUX_CUSTOM_AUTOSTART="true"
 ZSH_TMUX_AUTOCONNECT="true"
 ZSH_TMUX_AUTOQUIT="false"
 ZSH_TMUX_FIXTERM="true"
+ZSH_TMUX_UNICODE="true"
 
 # start OMZ
 source "${ZSH}/oh-my-zsh.sh"
