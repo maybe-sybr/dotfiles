@@ -16,6 +16,9 @@ scrolling:
 
 font:
   size: 9
+  normal:
+    family: DejaVuSansMono Nerd Font
+    style: Regular
 
 draw_bold_text_with_bright_colors: true
 
