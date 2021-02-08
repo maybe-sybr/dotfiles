@@ -72,6 +72,7 @@ plugins=(
     virtualenv
     # custom plugins
     git-custom
+    tmux-custom
 )
 # plugin specific config
 #
@@ -88,7 +89,7 @@ bindkey -M vicmd "?" history-incremental-search-backward
 bindkey "^S" history-incremental-search-forward
 bindkey -M vicmd "/" history-incremental-search-forward
 # tmux
-ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_CUSTOM_AUTOSTART="true"
 ZSH_TMUX_AUTOCONNECT="true"
 ZSH_TMUX_AUTOQUIT="false"
 ZSH_TMUX_FIXTERM="true"
