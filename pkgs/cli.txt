@@ -1,11 +1,14 @@
 acpitool
 bind-utils
 brightnessctl
+bzip2
 finger
 htop
+jq
 keychain
 lsof
 nethogs
+p7zip
 powertop
 rsync
 terminus-fonts-console
@@ -13,6 +16,7 @@ tlock
 tmux
 tree
 udisks
+usbutils
 vim
 wondershaper
 zip
