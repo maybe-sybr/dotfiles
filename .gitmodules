@@ -9,3 +9,12 @@
 [submodule "dotfiles/vim/dot-vim/pack/default/start/gruvbox"]
 	path = dotfiles/vim/dot-vim/pack/default/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+	shallow = true
+[submodule "dotfiles/sway/.config/wofi"]
+	path = dotfiles/sway/.config/wofi
+	url = https://github.com/dracula/wofi
+	shallow = true
+[submodule "dotfiles/vim/dot-vim/pack/default/start/Vim-Jinja2-Syntax"]
+	path = dotfiles/vim/dot-vim/pack/default/start/Vim-Jinja2-Syntax
+	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+	shallow = true
