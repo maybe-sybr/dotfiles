@@ -18,3 +18,7 @@
 	path = dotfiles/vim/dot-vim/pack/default/start/Vim-Jinja2-Syntax
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
 	shallow = true
+[submodule "dotfiles/vim/dot-vim/pack/default/start/tabular"]
+	path = dotfiles/vim/dot-vim/pack/default/start/tabular
+	url = git://github.com/godlygeek/tabular.git
+	shallow = true
