@@ -80,8 +80,6 @@ bindsym $mod+Shift+Right    move right
 # spawn/kill
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
-# dmenu is bound below where we define our colour scheme
-#bindsym $mod+p exec dmenu_run
 # split directions
 bindsym $mod+backslash  split h
 bindsym $mod+minus      split v
@@ -119,6 +117,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# launcher
+bindsym $mod+p exec wofi --show run
+# bar
+exec waybar
+# layout
+exec kanshi
 # screen lock - mod4 should be the super/hyper keys
 bindsym mod4+l          exec "${HOME}/bin/swaylock"
 bindsym $mod+Shift+z    exec "${HOME}/bin/swaylock"
@@ -127,9 +131,6 @@ exec swayidle -w                                \
     timeout 900 'swaymsg "output * dpms off"'   \
     resume      'swaymsg "output * dpms on"'    \
     before-sleep '${HOME}/bin/swaylock'
-
-# display layout
-exec kanshi
 
 # run ~/.xsession so X things look right
 #exec bash "${HOME}/.xsession"
@@ -201,25 +202,6 @@ client.unfocused        #333333         #222222        #888888      #333333     
 client.urgent           $urgent_border  $urgent_bg     #FFFFFF      $urgent_indic   $urgent_child
 client.placeholder      #000000         #0C0C0C        #FFFFFF      #000000         #0C0C0C
 client.background       #FFFFFF
-# make dmenu coloured too
-bindsym $mod+p exec dmenu_run -b -nf "#BBBBBB" -nb "#222222" -sb "$active_bg" -sf "#EEEEEE" -fn "monospace-8" -p "run >"
-# apply colours to swaybar as well
-bar {
-    colors {
-        background  #000000
-        statusline  #FFFFFF
-        separator   #666666
-        focused_workspace   $active_border  $active_bg      #FFFFFF
-        active_workspace    #333333         #222222         #FFFFFF
-        inactive_workspace  #333333         #222222         #888888
-        urgent_workspace    $urgent_border  $urgent_bg      #FFFFFF
-        binding_mode        $binding_border $binding_bg     #FFFFFF
-    }
-##
-# other bar setup
-##
-    status_command i3status
-}
 
 input "type:keyboard" {
     xkb_options ctrl:nocaps
