@@ -22,3 +22,7 @@
 	path = dotfiles/vim/dot-vim/pack/default/start/tabular
 	url = git://github.com/godlygeek/tabular.git
 	shallow = true
+[submodule "dotfiles/tmux/dot-tmux/plugins/tpm"]
+	path = dotfiles/tmux/dot-tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+	shallow = true
