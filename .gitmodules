@@ -29,3 +29,12 @@
 [submodule "dotfiles/tmux/dot-tmux/plugins/tmux-sensible"]
 	path = dotfiles/tmux/dot-tmux/plugins/tmux-sensible
 	url = https://github.com/tmux-plugins/tmux-sensible
+	shallow = true
+[submodule "dotfiles/tmux/dot-tmux/plugins/tmux-continuum"]
+	path = dotfiles/tmux/dot-tmux/plugins/tmux-continuum
+	url = https://git::@github.com/tmux-plugins/tmux-continuum
+	shallow = true
+[submodule "dotfiles/tmux/dot-tmux/plugins/tmux-resurrect"]
+	path = dotfiles/tmux/dot-tmux/plugins/tmux-resurrect
+	url = https://git::@github.com/tmux-plugins/tmux-resurrect
+	shallow = true
