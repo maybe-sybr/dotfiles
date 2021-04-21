@@ -26,3 +26,6 @@
 	path = dotfiles/tmux/dot-tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 	shallow = true
+[submodule "dotfiles/tmux/dot-tmux/plugins/tmux-sensible"]
+	path = dotfiles/tmux/dot-tmux/plugins/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible
