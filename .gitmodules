@@ -38,3 +38,7 @@
 	path = dotfiles/tmux/dot-tmux/plugins/tmux-resurrect
 	url = https://git::@github.com/tmux-plugins/tmux-resurrect
 	shallow = true
+[submodule "dotfiles/tmux/dot-tmux/plugins/tmux-power"]
+	path = dotfiles/tmux/dot-tmux/plugins/tmux-power
+	url = https://git::@github.com/wfxr/tmux-power
+	shallow = true
