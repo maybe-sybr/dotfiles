@@ -42,3 +42,7 @@
 	path = dotfiles/tmux/dot-tmux/plugins/tmux-power
 	url = https://git::@github.com/wfxr/tmux-power
 	shallow = true
+[submodule "dotfiles/vim/dot-vim/pack/default/start/vim-fugitive"]
+	path = dotfiles/vim/dot-vim/pack/default/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+	shallow = true
