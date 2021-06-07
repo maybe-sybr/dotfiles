@@ -5,7 +5,7 @@
 [pull]
   ff = only
 [include]
-  path = ./identity.conf
+  path = ./identity.default.conf
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
