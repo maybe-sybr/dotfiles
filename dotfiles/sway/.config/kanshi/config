@@ -1,8 +1,8 @@
 profile nomad {
-    output eDP-1 enable position 0,0
+    output eDP-1 enable position 0,0        scale 2.0
 }
 profile work {
     output DP-7  enable position 0,0        transform 90
     output DP-5  enable position 1440,600
-    output eDP-1 enable position 1440,2040
+    output eDP-1 enable position 1440,2040  scale 1.0
 }
