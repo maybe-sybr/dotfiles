@@ -10,7 +10,6 @@ function _zsh_tmux_custom_attach() {
   local -r condition="#{&&:${match_sess},${detached}}"
   local -r detached_sessions_fmt="#{?${condition},#{session_name},}"
 
-  local took_session=false
   for cand in $("${TMUX_CMD}" ls -F "${detached_sessions_fmt}"); do
     if [ ! -z "${cand}" ] && "${TMUX_CMD}" attach-session -t ${cand}; then
       return
