@@ -31,3 +31,6 @@ alias gbp='__git_branch_prune'
 alias gwc='git whatchanged --stat --patch'
 # more verbose branch listing
 alias gbv='git branch -vv'
+
+# glog since the closest tag
+alias glogt='git log --oneline --graph --decorate --color=always "^$(git describe --tags --always --abbrev=0)^@" HEAD'
