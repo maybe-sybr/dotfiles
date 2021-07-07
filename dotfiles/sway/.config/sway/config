@@ -1,12 +1,6 @@
 ##
 # per-machine config
 ##
-# display layout - define leftmost and then each one toward the right up to 4
-set $DISPLAY_LEFTMOST   "eDP-1"
-set $DISPLAY_RIGHT_1    "DP-1"
-set $DISPLAY_RIGHT_2    ""
-set $DISPLAY_RIGHT_3    ""
-set $DISPLAY_RIGHT_4    ""
 # workspace -> display mapping - undefined = on-demand workspace
 # we can't use variable recursion because i3 doesn't support it
 set $WS1_DISPLAY        "eDP-1"
