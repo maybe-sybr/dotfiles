@@ -1,5 +1,5 @@
 crictl
-crio
+cri-o
 kubernetes-client
 openssl
 podman
