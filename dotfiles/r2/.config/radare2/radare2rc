@@ -1,0 +1,11 @@
+# Listing stuff
+e asm.syntax att
+e asm.cmtright = true
+
+# Visual stuff
+e scr.confirmexit = true
+e scr.utf8 = true
+e scr.pager = less -R -S
+
+# ESIL stuff
+e cmd.stack = true
