@@ -33,7 +33,7 @@ set cindent
 " set the cindent options to do the following
 "  - indent unclosed paren lines by a single shift width
 "  - don't indent the closing paren
-set cinoptions=(s,m1
+set cinoptions=1s,m1
 " allow a filetype plugin to override these settings
 filetype plugin indent on
 " but specify some options for python files
