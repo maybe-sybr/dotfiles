@@ -49,3 +49,6 @@
 [submodule "dotfiles/tmux/dot-tmux/plugins/tmux-pain-control"]
 	path = dotfiles/tmux/dot-tmux/plugins/tmux-pain-control
 	url = https://github.com/tmux-plugins/tmux-pain-control.git
+[submodule "dotfiles/vim/dot-vim/pack/default/start/vim-jsx-pretty"]
+	path = dotfiles/vim/dot-vim/pack/default/start/vim-jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
