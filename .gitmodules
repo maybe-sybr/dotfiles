@@ -55,3 +55,6 @@
 [submodule "dotfiles/zsh/.config/zsh/omz-custom/themes/powerlevel10k"]
 	path = dotfiles/zsh/.config/zsh/omz-custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "dotfiles/vim/dot-vim/pack/default/start/cocci-syntax"]
+	path = dotfiles/vim/dot-vim/pack/default/start/cocci-syntax
+	url = https://github.com/maybe-sybr/cocci-syntax.git

@@ -68,3 +68,6 @@ let g:netrw_hide=0
 let g:netrw_liststyle=3
 " browse into the previous window (like "P")
 let g:netrw_browse_split=4
+
+autocmd FileType cocci setlocal ts=2 sts=2 sw=2
+let g:cocci_folding=1
