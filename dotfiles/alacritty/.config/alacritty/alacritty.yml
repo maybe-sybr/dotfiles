@@ -70,7 +70,7 @@ colors:
   #    foreground: CellForeground
   #    background: CellBackground
 
-background_opacity: 1.0
+window.opacity: 1.0
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
