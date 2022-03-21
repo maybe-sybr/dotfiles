@@ -1,5 +1,4 @@
 alacritty
-greetd-gtkgreet
 grim
 i3status
 kanshi
