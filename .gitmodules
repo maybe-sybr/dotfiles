@@ -20,7 +20,7 @@
 	shallow = true
 [submodule "dotfiles/vim/dot-vim/pack/default/start/tabular"]
 	path = dotfiles/vim/dot-vim/pack/default/start/tabular
-	url = git://github.com/godlygeek/tabular.git
+	url = https://github.com/godlygeek/tabular.git
 	shallow = true
 [submodule "dotfiles/tmux/dot-tmux/plugins/tpm"]
 	path = dotfiles/tmux/dot-tmux/plugins/tpm
@@ -32,15 +32,15 @@
 	shallow = true
 [submodule "dotfiles/tmux/dot-tmux/plugins/tmux-continuum"]
 	path = dotfiles/tmux/dot-tmux/plugins/tmux-continuum
-	url = https://git::@github.com/tmux-plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum
 	shallow = true
 [submodule "dotfiles/tmux/dot-tmux/plugins/tmux-resurrect"]
 	path = dotfiles/tmux/dot-tmux/plugins/tmux-resurrect
-	url = https://git::@github.com/tmux-plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
 	shallow = true
 [submodule "dotfiles/tmux/dot-tmux/plugins/tmux-power"]
 	path = dotfiles/tmux/dot-tmux/plugins/tmux-power
-	url = https://git::@github.com/wfxr/tmux-power
+	url = https://github.com/wfxr/tmux-power
 	shallow = true
 [submodule "dotfiles/vim/dot-vim/pack/default/start/vim-fugitive"]
 	path = dotfiles/vim/dot-vim/pack/default/start/vim-fugitive
